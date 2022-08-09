@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 if __name__ == "__main__":
     print(__file__)
     
+    #use absolute paths
     dirpath = "/Users/thanathorn/Desktop/ENTSOE Parser/parser_plotter/yearly_data_2021"
     entsoecode = "/Users/thanathorn/Desktop/ENTSOE Parser/parser_plotter/entsoe_parser_plotter/default_docs/entsoe_code.json"
     eFactorFile = "/Users/thanathorn/Desktop/ENTSOE Parser/parser_plotter/entsoe_parser_plotter/default_docs/emissionFactors.json"
