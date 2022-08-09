@@ -142,6 +142,7 @@ class Monthly:
 
     def plotMonths(self): 
         fig, axs = plt.subplots(self.row, self.column, figsize=(20,10), sharey=True)
+        fig.suptitle(self.year)
         # plt.xticks(self.xAxis[index])
         # print()
 
@@ -228,7 +229,9 @@ class Daily:
         "Oct": 31,
         "Nov": 30,
         "Dec": 31
-        }
+        } 
+        self.checkleapyear()
+        
         self.days =  self.yearDict[month]
         self.permutations = []
         self.dailybounds = []
@@ -240,7 +243,7 @@ class Daily:
         self.column = 8
 
 
-        self.checkleapyear()
+       
         self.init(self.days)
         
         self.dailyPlot(self.month, self.monthDFList) 
@@ -318,40 +321,31 @@ class Daily:
         fig, axs = plt.subplots(self.row, self.column, figsize=(20,10), sharey=True)
         # fig.set_yticklabels(fontsize=7)
        
-        # plt.setp(axs, xlabel="Hour", ylabel=")
-
-        # axs.set_xticks(self.ticks)
-        # plt.xticks(self.ticks)
-
-        # plt.legend(self.countries)
+        # plt.setp(axs, xticks=self.ticks)
         for day, dayList in self.dailyDFDict.items(): 
             # print(day, len(dayList))
 
             index = day 
             subplot = axs[self.permutations[index]]
             subplot.title.set_text(index+1)
+          
             # subplot.set_yticklabels(fontsize=7)
             # subplot.tick_params(axis='x', rotation=90)
             # subplot.set_xticks(self.ticks)
             for df in dayList: 
                 subplot.plot(self.ticks, df['Average'])
-                
+            
+            # subplot.grid()
+    
+    
             
         # plt.legend()
         # plt.legend(self.countries,loc="best" )
         # plt.export_legend(legend)
         fig.legend(self.countries)
-        
+        # fig.grid()
         fig.suptitle(self.month)
-        # fig.supxlabel('Hour')
-        # fig.supylabel("Average Carbon Intensity (gCO2eq/kHh)", la)
-     
-        # fig.set_xticks(self.ticks)
-        # plt.xticks(self.ticks)
-        # plt.tight_layout()
-        # figManager = plt.get_current_fig_manager()
-        # figManager.window.showMaximized()
-        # plt.xticks(self.ticks)
+
         plt.tight_layout()
         plt.show()
  
