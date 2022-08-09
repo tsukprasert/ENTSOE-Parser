@@ -1,3 +1,3 @@
 ## ENTSOE Parser
 
-If the data is in a 15-minute interval format, use the *process* directory to format to one-hour interval before using the *calculation* directory </br>
+The main directory is the parser_plotter directory. Change the paths in *main.py* to the absolute paths of your machine.
