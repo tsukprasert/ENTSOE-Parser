@@ -21,12 +21,15 @@ if __name__ == "__main__":
 
     avgdata = calculation.Calculation(dir.files, dir.countries, dir.countryCode, eFactorFile)
 
-    yearlyPlot = plotting.Yearly(avgdata.calcDFList, dir.countries, year, showPlot=True)
+    yearlyPlot = plotting.Yearly(avgdata.calcDFList, dir.countries, year, showPlot=False)
     monthlyPlot = plotting.Monthly(avgdata.calcDFList, dir.countries, year, showPlot=False)
 
-    # for month in dir.yearDict.keys(): 
-    #     newplot = plotting.Daily(month,monthlyPlot.monthlyDFDict, 2021, dir.countries, showPlot=True)
+    for month in dir.yearDict.keys(): 
+        newplot = plotting.Daily(month,monthlyPlot.monthlyDFDict, 2021, dir.countries, showPlot=True)
     # plt.show()
         # print(month)
-    dailyPlot = plotting.Daily("Mar",monthlyPlot.monthlyDFDict, 2021, dir.countries, showPlot=False)
+    # dailyPlot = plotting.Daily("Mar",monthlyPlot.monthlyDFDict, 2021, dir.countries, showPlot=True)
     onedayPlot = plotting.OneDay("Mar", 9, 2021, monthlyPlot.monthlyDFDict, dir.countries, showPlot=False)
+
+
+    plt.show()

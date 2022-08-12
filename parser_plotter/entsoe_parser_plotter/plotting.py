@@ -28,9 +28,9 @@ class Yearly:
         # plt.xticks(np.arange(0, 8760, 730))
         plt.title(self.year)
         plt.ylabel("Average Carbon Intensity (gCO2eq/kHh)")
-        # plt.xlabel("")
+        plt.xlabel("Every one hour in a year")
         plt.tight_layout()
-        plt.show()
+        # plt.show()
 
 
 
@@ -142,7 +142,12 @@ class Monthly:
 
     def plotMonths(self): 
         fig, axs = plt.subplots(self.row, self.column, figsize=(20,10), sharey=True)
-        fig.suptitle(self.year)
+        fig.supylabel('Average Carbon Intensity (gCO2eq/kHh)')
+        fig.supxlabel('Every hour in a month')
+        # fig.suptitle(self.year)
+        # fig.text(0.5, 0.04, 'Every hour in a month', ha='center')
+        # fig.text(0.04, 0.5, 'Average Carbon Intensity (gCO2eq/kHh)', va='center', rotation='vertical')
+        # plt.setp(axs, xlabel="Every hour in a month", ylabel="Average Carbon Intensity (gCO2eq/kHh)")
         # plt.xticks(self.xAxis[index])
         # print()
 
@@ -169,8 +174,9 @@ class Monthly:
         # axs.set_ylabel("Average Carbon Intensity (gCO2eq/kHh)")
         # axs.set_xlabel("Hour")
         plt.legend(self.countries,bbox_to_anchor=(1,1), loc="upper left" )
+        
         plt.tight_layout()
-        plt.show()
+        # plt.show()
 
 
 
@@ -319,6 +325,8 @@ class Daily:
     def plotDays(self): 
         
         fig, axs = plt.subplots(self.row, self.column, figsize=(20,10), sharey=True)
+        fig.supylabel('Average Carbon Intensity (gCO2eq/kHh)')
+        fig.supxlabel('Every hour in a day')
         # fig.set_yticklabels(fontsize=7)
        
         # plt.setp(axs, xticks=self.ticks)
@@ -347,7 +355,7 @@ class Daily:
         fig.suptitle(self.month)
 
         plt.tight_layout()
-        plt.show()
+        # plt.show()
  
     def setticks(self): 
         for i in range(24): 
@@ -425,7 +433,7 @@ class OneDay:
         
     def plotOneDay(self):
         title = "Average Carbon Intensity %s %s, %s"%(self.month, self.date, self.year)
-        plt.figure()
+        plt.figure(figsize=(60,20))
 
         for df in self.oneDayDFList:
             plt.plot(self.ticks, df['Average'])
@@ -441,7 +449,7 @@ class OneDay:
         
 
         plt.tight_layout()
-        plt.show()
+        # plt.show()
 
 
 
